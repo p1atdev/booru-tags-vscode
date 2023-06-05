@@ -38,12 +38,15 @@ This extension contributes the following settings:
 >}
 >```
 
-<!-- ## Known Issues
+<!-- ## Known Issues -->
 
- -->
+
 
 ## Release Notes
 
+### 1.1.1
+
+Fixed small bugs.
 
 ### 1.1.0
 
