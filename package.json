@@ -1,0 +1,92 @@
+{
+  "name": "booru-tags",
+  "displayName": "booru-tags",
+  "description": "Booru tags completion extension for VSCode",
+  "license": "MIT",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.78.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "booru-tags.enable",
+        "title": "Booru Tags: Enable Completion"
+      },
+      {
+        "command": "booru-tags.disable",
+        "title": "Booru Tags: Disable Completion"
+      }
+    ],
+    "configuration": {
+      "title": "Booru Tags",
+      "properties": {
+        "booru-tags.useGeneralTags": {
+          "type": "boolean",
+          "default": true,
+          "description": "Use general tags"
+        },
+        "booru-tags.useCharacterTags": {
+          "type": "boolean",
+          "default": true,
+          "description": "Use character tags"
+        },
+        "booru-tags.useCopyrightTags": {
+          "type": "boolean",
+          "default": true,
+          "description": "Use copyright tags"
+        },
+        "booru-tags.useArtistTags": {
+          "type": "boolean",
+          "default": false,
+          "description": "Use artist tags"
+        },
+        "booru-tags.useMetaTags": {
+          "type": "boolean",
+          "default": true,
+          "description": "Use meta tags"
+        },
+        "booru-tags.withUnderscore": {
+          "type": "boolean",
+          "default": false,
+          "description": "Use original tags with underscores (_) instead of spaces"
+        },
+        "booru-tags.trailingComma": {
+          "type": "boolean",
+          "default": true,
+          "description": "Add trailing comma after completion"
+        }
+      }
+    }
+  },
+  "activationEvents": [
+    "onLanguage:plaintext",
+    "onLanguage:markdown"
+  ],
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "yarn run compile && yarn run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "generate:tags": "node ./out/assets/generate-tags.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "20.2.5",
+    "@types/vscode": "^1.78.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.8",
+    "@typescript-eslint/parser": "^5.59.8",
+    "@vscode/test-electron": "^2.3.2",
+    "eslint": "^8.41.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^5.1.3"
+  }
+}
