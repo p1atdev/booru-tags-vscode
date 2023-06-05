@@ -1,4 +1,11 @@
+
+
+<div align="center">
+<img src="public/assets/icon.png" width="160px" height="160px" />
+</div>
+
 # Booru Tags Completion Extension for VSCode
+
 
 This extension provides completion of booru tags. 
 
@@ -30,7 +37,7 @@ This extension contributes the following settings:
 
 ## Release Notes
 
-### 0.0.1
+### 1.0.0
 
 Initial release.
 

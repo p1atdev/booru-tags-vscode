@@ -6,6 +6,14 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+### Added 
+
+- Added icon to README
+
+### Fixed
+
+- version on README
+
 ## [1.0.0] - 2023-06-05
 ### Added
 
