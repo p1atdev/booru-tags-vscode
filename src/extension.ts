@@ -15,37 +15,64 @@ function getTagConfig(): Partial<TagConfig> {
     meta: config.get(CONFIG.USE_META_TAGS),
     withUnderscore: config.get(CONFIG.WITH_UNDERSCORE),
     customTags: config.get(CONFIG.CUSTOM_TAGS),
+    filesToEnable: config.get(CONFIG.FILES_TO_ENABLE),
   };
   return tagConfig;
 }
 
-export async function activate(context: vscode.ExtensionContext) {
+async function clearListners(context: vscode.ExtensionContext) {
+  context.subscriptions.forEach((element) => {
+    element.dispose();
+  });
+}
+
+async function registerListners(context: vscode.ExtensionContext) {
   const tagConfig = getTagConfig();
 
   const tagManager = new TagManager(tagConfig, context.extensionPath);
 
   await tagManager.getAllTags();
 
+  for (const file of tagManager.config.filesToEnable) {
+    context.subscriptions.push(
+      vscode.languages.registerCompletionItemProvider(
+        { scheme: "file", pattern: `**/*.${file}` },
+        new TagCompletions(tagManager)
+      )
+    );
+
+    context.subscriptions.push(
+      vscode.languages.registerHoverProvider(
+        { scheme: "file", pattern: `**/*.${file}` },
+        new TagDocumentHover(tagManager)
+      )
+    );
+  }
+
   context.subscriptions.push(
-    vscode.languages.registerCompletionItemProvider(
-      "plaintext",
-      new TagCompletions(tagManager)
-    )
+    vscode.commands.registerCommand("booru-tags.enable", async () => {
+      console.log("booru-tags.enable");
+    })
   );
 
   context.subscriptions.push(
-    vscode.languages.registerHoverProvider(
-      "plaintext",
-      new TagDocumentHover(tagManager)
-    )
+    vscode.commands.registerCommand("booru-tags.disable", async () => {
+      console.log("booru-tags.disable");
+    })
   );
 
   context.subscriptions.push(
     vscode.workspace.onDidChangeConfiguration(async (event) => {
+      // TODO: この方法でいいのか...?
       // 設定が変更されたら再読み込み
       if (event.affectsConfiguration("booru-tags")) {
-        tagManager.updateConfig(getTagConfig());
+        clearListners(context);
+        await registerListners(context);
       }
     })
   );
+}
+
+export async function activate(context: vscode.ExtensionContext) {
+  await registerListners(context);
 }

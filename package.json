@@ -63,15 +63,24 @@
         "booru-tags.customTags": {
           "type": "array",
           "default": [],
-          "description": "Add custom tags to completion suggestions."
+          "description": "Add custom tags to completion suggestions.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "booru-tags.filesToEnable": {
+          "type": "array",
+          "default": ["md", "txt"],
+          "description": "Enable completion only for these files.",
+          "items": {
+            "type": "string"
+          }
         }
       }
     }
   },
   "activationEvents": [
-    "onLanguage:plaintext",
-    "onLanguage:markdown",
-    "onLanguage:toml"
+    "onLanguage"
   ],
   "scripts": {
     "vscode:prepublish": "yarn run compile",

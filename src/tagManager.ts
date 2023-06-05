@@ -15,6 +15,7 @@ export interface TagConfig {
   withUnderscore: boolean;
   trailingComma: boolean;
   customTags: string[];
+  filesToEnable: string[];
 }
 
 const DEFAULT_TAG_CONFIG: TagConfig = {
@@ -26,6 +27,7 @@ const DEFAULT_TAG_CONFIG: TagConfig = {
   withUnderscore: false,
   trailingComma: true,
   customTags: [],
+  filesToEnable: ["md", "txt"],
 };
 
 export class TagManager {

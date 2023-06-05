@@ -15,4 +15,5 @@ export const CONFIG = {
   WITH_UNDERSCORE: "withUnderscore",
   TRAILING_COMMA: "trailingComma",
   CUSTOM_TAGS: "customTags",
+  FILES_TO_ENABLE: "filesToEnable",
 };

@@ -4,13 +4,9 @@ This extension provides completion of booru tags.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+- Danbooru tag completion
+  - General tags, character tags, copyright tags, artist tags and meta tags
+- Registration of custom tags (e.g. `masterpiece`, `best quality`)
 
 
 ## Extension Settings
@@ -25,22 +21,8 @@ This extension contributes the following settings:
 * `booru-tags.withUnderscore`: Use tags with underscores. (e.g. use `looking_at_viewer` instead of `looking at viewer`)
 * `booru-tags.trailingComma`: Add trailing comma after tags. (e.g. complete like `solo, ` instead of `solo`)
 * `booru-tags.customTags`: Add custom tags to completion suggestions.
+* `booru-tags.filesToEnable`: Specify file extensions to enable this extension.
 
-Example of `settings.json`:
-
-```json
-{
-    "booru-tags.customTags": [
-        "masterpiece",
-        "best quality",
-        "exceptional",
-        "best aesthetic",
-        "newest",
-        "anime",
-        "worst quality, low quality, bad aesthetic, oldest, bad anatomy"
-    ]
-}
-```
 
 <!-- ## Known Issues
 
