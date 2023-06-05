@@ -6,6 +6,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
+## [1.1.0] - 2023-06-06
+
 ### Added 
 
 - Added note for using with files such as markdown and toml
