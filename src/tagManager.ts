@@ -2,8 +2,8 @@ import * as vscode from "vscode";
 
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import { TagItem } from "./types/tags";
-import { CONSTANT } from "./constant";
+import { TagCategory, TagItem } from "./types/tags";
+import { COLORS, CONSTANT } from "./constant";
 import { autoScalePrefix } from "./utils";
 
 export interface TagConfig {
@@ -135,22 +135,45 @@ export class TagManager {
   public createDocumentMarkdown(tag: TagItem): vscode.MarkdownString {
     const markdown = new vscode.MarkdownString();
     markdown.supportHtml = true;
-    markdown.isTrusted = true;
 
     const wikiUrl = `https://safebooru.donmai.us/wiki_pages/${tag.name}`;
+    const tagSpanStyle = `color:${this.tagCategoryToColor(tag.category)};`;
 
     markdown.appendMarkdown(
-      `<h2>${tag.name} - [${autoScalePrefix(tag.post_count)}]</h2>`
+      `<h2><span style="${tagSpanStyle}">${tag.name}</span></h2>`
+    );
+    markdown.appendMarkdown(
+      `<p>Post count: ${tag.post_count.toLocaleString(
+        "en-US"
+      )} (${autoScalePrefix(tag.post_count)})</p>`
+    );
+    markdown.appendMarkdown(
+      `<p>Tag category: ${TagCategory[tag.category]}</p>`
     );
     markdown.appendMarkdown(`
     <p><a href="${wikiUrl}">See on safebooru wiki page.</a></p>
   `);
 
-    // TODO: iframeで直接wikiページ表示できるかな
-    //   markdown.appendMarkdown(`
-    //   <iframe src="${wikiUrl}" width="400" height="300"></iframe>
-    //   `);
-
     return markdown;
+  }
+
+  private tagCategoryToColor(category: TagCategory): string {
+    switch (category) {
+      case TagCategory.general: {
+        return COLORS.GENERAL_TAG;
+      }
+      case TagCategory.character: {
+        return COLORS.CHARACTER_TAG;
+      }
+      case TagCategory.copyright: {
+        return COLORS.COPYRIGHT_TAG;
+      }
+      case TagCategory.artist: {
+        return COLORS.ARTIST_TAG;
+      }
+      case TagCategory.meta: {
+        return COLORS.META_TAG;
+      }
+    }
   }
 }

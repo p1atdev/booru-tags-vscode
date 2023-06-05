@@ -33,20 +33,28 @@ async function registerListners(context: vscode.ExtensionContext) {
 
   await tagManager.getAllTags();
 
-  for (const file of tagManager.config.filesToEnable) {
+  const registerCompletion = (selector: vscode.DocumentSelector) => {
     context.subscriptions.push(
       vscode.languages.registerCompletionItemProvider(
-        { scheme: "file", pattern: `**/*.${file}` },
+        selector,
         new TagCompletions(tagManager)
       )
     );
 
     context.subscriptions.push(
       vscode.languages.registerHoverProvider(
-        { scheme: "file", pattern: `**/*.${file}` },
+        selector,
         new TagDocumentHover(tagManager)
       )
     );
+  };
+
+  for (const file of tagManager.config.filesToEnable) {
+    registerCompletion({ scheme: "file", pattern: `**/*.${file}` });
+  }
+
+  for (const language of ["plaintext"]) {
+    registerCompletion({ scheme: "untitled", language });
   }
 
   context.subscriptions.push(

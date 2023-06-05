@@ -156,27 +156,27 @@ async function fetchAndSaveTags(
 async function main() {
   await fetchAndSaveTags(
     AVAILABLE_GENERAL_TAGS_SEARCH_QUERY,
-    4,
+    2,
     CONSTANT.GENERAL_TAGS_JSON_PATH
   );
   await fetchAndSaveTags(
     AVAILABLE_CHARACTER_TAGS_SEARCH_QUERY,
-    4,
+    2,
     CONSTANT.CHARACTER_TAGS_JSON_PATH
   );
   await fetchAndSaveTags(
     AVAILABLE_COPYRIGHT_TAGS_SEARCH_QUERY,
-    4,
+    2,
     CONSTANT.COPYRIGHT_TAGS_JSON_PATH
   );
   await fetchAndSaveTags(
     AVAILABLE_ARTIST_TAGS_SEARCH_QUERY,
-    4,
+    2,
     CONSTANT.ARTIST_TAGS_JSON_PATH
   );
   await fetchAndSaveTags(
     AVAILABLE_META_TAGS_SEARCH_QUERY,
-    4,
+    2,
     CONSTANT.META_TAGS_JSON_PATH
   );
 

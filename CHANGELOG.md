@@ -9,16 +9,21 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ### Added 
 
 - Added icon to README
-- Added note for using with files such as markdown and toml. 
+- Added note for using with files such as markdown and toml
 - Added publisher
+- Added tag category to tag descriptions
+- Added extension support to untitled plain text
+- Added tag color
 
 ### Changed
 
 - Removed `md` from default settings of `booru-tags.filesToEnable`
+- Post count format on tag descriptions
 
 ### Fixed
 
-- version on README
+- Version on README
+- Some tags were missing
 
 ## [1.0.0] - 2023-06-05
 ### Added
