@@ -2,7 +2,7 @@
   "name": "booru-tags",
   "displayName": "Booru Tags Completion",
   "description": "Booru tags completion extension for VSCode",
-  "icon": "public/assets/icon.png",
+  "icon": "public/assets/images/icon.png",
   "license": "MIT",
   "publisher": "nyoplat",
   "repository": {

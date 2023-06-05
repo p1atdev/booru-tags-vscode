@@ -19,7 +19,12 @@ export default class TagDocumentHover implements vscode.HoverProvider {
     const tag = this.tagManager.getTagByName(word);
 
     if (tag) {
-      const markdown = this.tagManager.createDocumentMarkdown(tag);
+      const markdown = this.tagManager.createTagMarkdown(tag);
+
+      return new vscode.Hover(markdown);
+    } else {
+      // custom tag
+      const markdown = this.tagManager.createCustomTagMarkdown(word);
 
       return new vscode.Hover(markdown);
     }

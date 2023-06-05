@@ -132,7 +132,7 @@ export class TagManager {
     return this.allTags.find((tag) => tag.name === name);
   }
 
-  public createDocumentMarkdown(tag: TagItem): vscode.MarkdownString {
+  public createTagMarkdown(tag: TagItem): vscode.MarkdownString {
     const markdown = new vscode.MarkdownString();
     markdown.supportHtml = true;
 
@@ -153,6 +153,21 @@ export class TagManager {
     markdown.appendMarkdown(`
     <p><a href="${wikiUrl}">See on safebooru wiki page.</a></p>
   `);
+
+    return markdown;
+  }
+
+  public createCustomTagMarkdown(tag: string): vscode.MarkdownString {
+    const markdown = new vscode.MarkdownString();
+    markdown.supportHtml = true;
+
+    const tagSpanStyle = `color:${COLORS.CUSTOM_TAG};`;
+
+    markdown.appendMarkdown(
+      `<h2><span style="${tagSpanStyle}">${tag}</span></h2>`
+    );
+    markdown.appendMarkdown(`<p>Tag category: custom</p>`);
+    markdown.appendMarkdown(`<p>This tag is added by user</p>`);
 
     return markdown;
   }

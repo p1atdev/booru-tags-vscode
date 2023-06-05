@@ -45,7 +45,7 @@ export default class TagCompletions implements vscode.CompletionItemProvider {
         }
       }
 
-      item.documentation = this.tagManager.createDocumentMarkdown(tags[i]);
+      item.documentation = this.tagManager.createTagMarkdown(tags[i]);
 
       if (this.tagManager.config.trailingComma) {
         item.insertText = `${tag}, `;
@@ -58,7 +58,15 @@ export default class TagCompletions implements vscode.CompletionItemProvider {
       completions.push(
         ...this.tagManager.config.customTags.map((tag) => {
           const item = new vscode.CompletionItem(tag);
+
           item.kind = vscode.CompletionItemKind.Event;
+
+          item.documentation = this.tagManager.createCustomTagMarkdown(tag);
+
+          if (this.tagManager.config.trailingComma) {
+            item.insertText = `${tag}, `;
+          }
+
           return item;
         })
       );

@@ -24,4 +24,5 @@ export const COLORS = {
   COPYRIGHT_TAG: "#C797FF",
   ARTIST_TAG: "#FF8A8B",
   META_TAG: "#EAD084",
+  CUSTOM_TAG: "#6576FB",
 };

@@ -9,6 +9,7 @@ This extension provides completion of booru tags.
   - General tags, character tags, copyright tags, artist tags and meta tags
 - Registration of custom tags (e.g. `masterpiece`, `best quality`)
 
+![screenshot 1](public/assets/images/screenshot01.png)
 
 ## Extension Settings
 

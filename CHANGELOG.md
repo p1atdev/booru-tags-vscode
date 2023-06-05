@@ -8,17 +8,19 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ### Added 
 
-- Added icon to README
 - Added note for using with files such as markdown and toml
 - Added publisher
 - Added tag category to tag descriptions
 - Added extension support to untitled plain text
 - Added tag color
+- Added screenshot to README
+- Added description to custom tags
 
 ### Changed
 
 - Removed `md` from default settings of `booru-tags.filesToEnable`
 - Post count format on tag descriptions
+- Changed images' directory
 
 ### Fixed
 
