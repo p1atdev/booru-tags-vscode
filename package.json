@@ -4,6 +4,7 @@
   "description": "Booru tags completion extension for VSCode",
   "icon": "public/assets/icon.png",
   "license": "MIT",
+  "publisher": "nyoplat",
   "repository": {
     "type": "git",
     "url": "https://github.com/p1atdev/booru-tags-vscode"
@@ -79,7 +80,7 @@
         },
         "booru-tags.filesToEnable": {
           "type": "array",
-          "default": ["md", "txt"],
+          "default": ["txt"],
           "description": "Enable completion only for these files.",
           "items": {
             "type": "string"

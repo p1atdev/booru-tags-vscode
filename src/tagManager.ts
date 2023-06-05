@@ -27,7 +27,7 @@ const DEFAULT_TAG_CONFIG: TagConfig = {
   withUnderscore: false,
   trailingComma: true,
   customTags: [],
-  filesToEnable: ["md", "txt"],
+  filesToEnable: ["txt"],
 };
 
 export class TagManager {

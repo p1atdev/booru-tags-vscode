@@ -9,6 +9,12 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ### Added 
 
 - Added icon to README
+- Added note for using with files such as markdown and toml. 
+- Added publisher
+
+### Changed
+
+- Removed `md` from default settings of `booru-tags.filesToEnable`
 
 ### Fixed
 

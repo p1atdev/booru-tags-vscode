@@ -1,9 +1,3 @@
-
-
-<div align="center">
-<img src="public/assets/icon.png" width="160px" height="160px" />
-</div>
-
 # Booru Tags Completion Extension for VSCode
 
 
@@ -30,6 +24,18 @@ This extension contributes the following settings:
 * `booru-tags.customTags`: Add custom tags to completion suggestions.
 * `booru-tags.filesToEnable`: Specify file extensions to enable this extension.
 
+> Note: If you are trying to use this extension with files with some extensions like `.md` or `.toml`, you will need the following settings in `settings.json` to enable completion:
+> ```json
+>{
+>    "[markdown]": { // or such as [toml]
+>        "editor.quickSuggestions": {
+>            "comments": "on",
+>            "strings": "on",
+>            "other": "on"
+>        }
+>    }
+>}
+>```
 
 <!-- ## Known Issues
 
