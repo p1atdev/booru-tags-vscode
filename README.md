@@ -44,6 +44,12 @@ This extension contributes the following settings:
 
 ## Release Notes
 
+
+### 1.1.0
+
+Improved tag descriptions and fixed some missing tags.
+
+
 ### 1.0.0
 
 Initial release.
