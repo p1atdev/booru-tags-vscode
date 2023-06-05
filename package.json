@@ -1,14 +1,23 @@
 {
   "name": "booru-tags",
-  "displayName": "booru-tags",
+  "displayName": "Booru Tags Completion",
   "description": "Booru tags completion extension for VSCode",
+  "icon": "public/assets/icon.png",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/p1atdev/booru-tags-vscode"
+  },
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.78.0"
   },
   "categories": [
     "Other"
+  ],
+  "keywords": [
+    "booru",
+    "danbooru"
   ],
   "main": "./out/extension.js",
   "contributes": {
