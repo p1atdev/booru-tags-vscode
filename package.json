@@ -28,27 +28,27 @@
         "booru-tags.useGeneralTags": {
           "type": "boolean",
           "default": true,
-          "description": "Use general tags"
+          "description": "Use general tags. (e.g. 1girl, looking at viewer)"
         },
         "booru-tags.useCharacterTags": {
           "type": "boolean",
           "default": true,
-          "description": "Use character tags"
+          "description": "Use character tags. (e.g. hakurei reimu, hatsune miku)"
         },
         "booru-tags.useCopyrightTags": {
           "type": "boolean",
           "default": true,
-          "description": "Use copyright tags"
+          "description": "Use copyright tags. (e.g. touhou, vocaloid)"
         },
         "booru-tags.useArtistTags": {
           "type": "boolean",
           "default": false,
-          "description": "Use artist tags"
+          "description": "Use artist tags."
         },
         "booru-tags.useMetaTags": {
           "type": "boolean",
           "default": true,
-          "description": "Use meta tags"
+          "description": "Use meta tags. (e.g. highres, jpeg artifacts)"
         },
         "booru-tags.withUnderscore": {
           "type": "boolean",
@@ -58,14 +58,20 @@
         "booru-tags.trailingComma": {
           "type": "boolean",
           "default": true,
-          "description": "Add trailing comma after completion"
+          "description": "Add trailing comma after completion."
+        },
+        "booru-tags.customTags": {
+          "type": "array",
+          "default": [],
+          "description": "Add custom tags to completion suggestions."
         }
       }
     }
   },
   "activationEvents": [
     "onLanguage:plaintext",
-    "onLanguage:markdown"
+    "onLanguage:markdown",
+    "onLanguage:toml"
   ],
   "scripts": {
     "vscode:prepublish": "yarn run compile",

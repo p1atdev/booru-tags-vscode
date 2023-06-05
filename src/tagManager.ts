@@ -14,6 +14,7 @@ export interface TagConfig {
   meta: boolean;
   withUnderscore: boolean;
   trailingComma: boolean;
+  customTags: string[];
 }
 
 const DEFAULT_TAG_CONFIG: TagConfig = {
@@ -24,6 +25,7 @@ const DEFAULT_TAG_CONFIG: TagConfig = {
   meta: true,
   withUnderscore: false,
   trailingComma: true,
+  customTags: [],
 };
 
 export class TagManager {
@@ -35,6 +37,11 @@ export class TagManager {
   constructor(config: Partial<TagConfig>, extensionPath: string) {
     this.config = { ...DEFAULT_TAG_CONFIG, ...config };
     this.extensionPath = extensionPath;
+  }
+
+  public async updateConfig(config: Partial<TagConfig>) {
+    this.config = { ...this.config, ...config };
+    await this.getAllTags();
   }
 
   private async readTags(path: string): Promise<TagItem[]> {

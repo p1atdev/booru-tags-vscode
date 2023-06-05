@@ -5,7 +5,7 @@ import { TagConfig, TagManager } from "./tagManager";
 import { CONFIG } from "./constant";
 import TagDocumentHover from "./document";
 
-export async function activate(context: vscode.ExtensionContext) {
+function getTagConfig(): Partial<TagConfig> {
   const config = vscode.workspace.getConfiguration("booru-tags");
   const tagConfig: Partial<TagConfig> = {
     general: config.get(CONFIG.USE_GENERAL_TAGS),
@@ -14,7 +14,13 @@ export async function activate(context: vscode.ExtensionContext) {
     artist: config.get(CONFIG.USE_ARTIST_TAGS),
     meta: config.get(CONFIG.USE_META_TAGS),
     withUnderscore: config.get(CONFIG.WITH_UNDERSCORE),
+    customTags: config.get(CONFIG.CUSTOM_TAGS),
   };
+  return tagConfig;
+}
+
+export async function activate(context: vscode.ExtensionContext) {
+  const tagConfig = getTagConfig();
 
   const tagManager = new TagManager(tagConfig, context.extensionPath);
 
@@ -32,5 +38,14 @@ export async function activate(context: vscode.ExtensionContext) {
       "plaintext",
       new TagDocumentHover(tagManager)
     )
+  );
+
+  context.subscriptions.push(
+    vscode.workspace.onDidChangeConfiguration(async (event) => {
+      // 設定が変更されたら再読み込み
+      if (event.affectsConfiguration("booru-tags")) {
+        tagManager.updateConfig(getTagConfig());
+      }
+    })
   );
 }

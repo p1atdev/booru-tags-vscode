@@ -14,4 +14,5 @@ export const CONFIG = {
   USE_META_TAGS: "useMetaTags",
   WITH_UNDERSCORE: "withUnderscore",
   TRAILING_COMMA: "trailingComma",
+  CUSTOM_TAGS: "customTags",
 };

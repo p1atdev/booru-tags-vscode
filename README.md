@@ -1,6 +1,6 @@
-# booru-tags README
+# Booru Tags Completion Extension for VSCode
 
-This is the README for your extension "booru-tags". After writing up a brief description, we recommend including the following sections.
+This extension provides completion of booru tags. 
 
 ## Features
 
@@ -12,60 +12,45 @@ For example if there is an image subfolder under your extension project workspac
 
 > Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
 
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
 This extension contributes the following settings:
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+* `booru-tags.useGeneralTags`: Show general tags in completion suggestions. (e.g. `1girl`, `looking at viewer`)
+* `booru-tags.useCharacterTags`: Show character tags in completion suggestions. (e.g. `hakurei reimu`, `hatsune miku`)
+* `booru-tags.useCopyrightTags`: Show copyright tags in completion suggestions. (e.g. `touhou`, `vocaloid`)
+* `booru-tags.useArtistTags`: Show artist tags in completion suggestions. 
+* `booru-tags.useMetaTags`: Show meta tags in completion suggestions. (e.g. `highres`, `jpeg artifacts`)
+* `booru-tags.withUnderscore`: Use tags with underscores. (e.g. use `looking_at_viewer` instead of `looking at viewer`)
+* `booru-tags.trailingComma`: Add trailing comma after tags. (e.g. complete like `solo, ` instead of `solo`)
+* `booru-tags.customTags`: Add custom tags to completion suggestions.
 
-## Known Issues
+Example of `settings.json`:
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+```json
+{
+    "booru-tags.customTags": [
+        "masterpiece",
+        "best quality",
+        "exceptional",
+        "best aesthetic",
+        "newest",
+        "anime",
+        "worst quality, low quality, bad aesthetic, oldest, bad anatomy"
+    ]
+}
+```
+
+<!-- ## Known Issues
+
+ -->
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.0.1
 
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+Initial release.
 
 ---
 
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**

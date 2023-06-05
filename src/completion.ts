@@ -16,8 +16,6 @@ export default class TagCompletions implements vscode.CompletionItemProvider {
     const tags = this.tagManager.allTags;
     const stringTags = this.tagManager.allStringTags;
 
-    console.log(tags);
-
     const completions = stringTags.map((tag, i) => {
       const item = new vscode.CompletionItem(tag);
 
@@ -55,6 +53,16 @@ export default class TagCompletions implements vscode.CompletionItemProvider {
 
       return item;
     });
+
+    if (this.tagManager.config.customTags) {
+      completions.push(
+        ...this.tagManager.config.customTags.map((tag) => {
+          const item = new vscode.CompletionItem(tag);
+          item.kind = vscode.CompletionItemKind.Event;
+          return item;
+        })
+      );
+    }
 
     return completions;
   }
